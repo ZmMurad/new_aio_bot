@@ -1,0 +1,23 @@
+version: "3.3"
+
+services:
+
+  bot:
+    build: .
+    restart: always
+    container_name: tg_info_bot
+    ports:
+      - "0.0.0.0:5556:5000"
+    environment:
+      - ADMIN_URL=https://vm3707648.43ssd.had.wf/
+      - BOT_TOKEN=5089695436:AAGcdENF4gKzpJ7NB_H6F7Oah3qNCFG0i40
+      - REDIS_CONN=
+      - WEBHOOK_URL=https://vm3707648.43ssd.had.wf
+      - REV_LINK=http://127.0.0.1:8000
+    volumes:
+      - /var/log/infobot_tg_bot:/log
+
+networks:
+  default:
+    external: true
+    name: docker-network
